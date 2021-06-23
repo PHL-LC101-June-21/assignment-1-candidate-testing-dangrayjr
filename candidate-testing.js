@@ -10,7 +10,6 @@ let question = "Who was the first American woman in space?";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
 
-
 let questions = [
   `Who was the first American Woman in space? `,
   'True or false: 5 kilometer == 5000 meters? ',
@@ -24,7 +23,7 @@ let correctAnswers = [
   "Trajectory",
   `3`];
 
-let candidateAnswers = "";
+let candidateAnswers = 0
 
 
 function askForName() {
@@ -34,15 +33,22 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  console.log(question);
+  for(let i = 0; i < questions.length; i++){
+  console.log(questions[i]);
   candidateAnswer = input.question(`Answer: `);
-  //console.log(questions);
-  if (candidateAnswer == correctAnswer){
+  if (candidateAnswer == correctAnswers[i]){
     console.log('Correct!');
+    candidateAnswers = candidateAnswers + 10
   }
   else {
     console.log('Incorrect.');
   }
+  }
+  console.log(candidateAnswers);
+  
+  
+  
+  
 }
 
 function gradeQuiz(candidateAnswers) {
@@ -51,6 +57,7 @@ function gradeQuiz(candidateAnswers) {
  
 
   //let grade;
+
 
 
   //return grade;
