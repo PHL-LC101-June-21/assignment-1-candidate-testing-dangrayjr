@@ -23,44 +23,56 @@ let correctAnswers = [
   "Trajectory",
   `3`];
 
-let candidateAnswers = 0
+let candidateAnswers = [];
+let gradeMark = 0
 
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question(`Please enter your name: `);
+  console.log(`----------`);
+  
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for(let i = 0; i < questions.length; i++){
+  
   console.log(questions[i]);
-  candidateAnswer = input.question(`Answer: `);
-  if (candidateAnswer == correctAnswers[i]){
+  candidateAnswer = input.question(`\n\t Your Answer: `); 
+
+  candidateAnswers.push(candidateAnswer);
+ if (candidateAnswers[i] === correctAnswers[i]){
+    console.log('\n');
     console.log('Correct!');
-    candidateAnswers = candidateAnswers + 10
+    console.log('The correct answer is: ' + correctAnswers[i]);
+    console.log('\n');
+    gradeMark = gradeMark +1;
   }
   else {
+    console.log('\n');
     console.log('Incorrect.');
-  }
-  }
-  console.log(candidateAnswers);
-  
-  
-  
-  
+    console.log('The correct answer is: ' + correctAnswers[i]);
+    console.log('\n');
+  } }
 }
 
-function gradeQuiz(candidateAnswers) {
+function gradeQuiz() {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
- 
+  
+  
 
-  //let grade;
+  let grade;
+grade = gradeMark / correctAnswers.length * 100
+console.log(`this is your grade: ${grade}.`);
+if (grade > 60){
+  console.log(`Congratulations ${candidateName}!!  You passed!!`);
 
-
-
-  //return grade;
+} else {
+  console.log(`Sorry ${candidateName}, please try again`);
+}
+  return grade;
 }
 
 function runProgram() {
@@ -69,7 +81,7 @@ function runProgram() {
   
 
   askQuestion();
-  //gradeQuiz(this.candidateAnswers);
+  gradeQuiz(this.candidateAnswers);
 }
 
 // Don't write any code below this line //
