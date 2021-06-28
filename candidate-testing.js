@@ -9,8 +9,6 @@ let candidateName = ``;
 let question = "Who was the first American woman in space?";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
-candidateAnswer = candidateAnswer.toUpperCase();
-
 let questions = [
   `Who was the first American Woman in space? `,
   'True or false: 5 kilometer == 5000 meters? ',
@@ -23,12 +21,10 @@ let correctAnswers = [
   `40`,
   "Trajectory",
   `3`];
-  correctAnswers = correctAnswers.toUpperCase();
 
 let candidateAnswers = [];
-let gradeMark = 0
+let gradeMark = 0;
 
-//if (correctAnswers != correctAnswers.toUpperCase()){}
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -39,19 +35,18 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  for(let i = 0; i < questions.length; i++){
   
+  for(let i = 0; i < questions.length; i++){
+  //Prints questions.
   console.log(questions[i]);
   candidateAnswer = input.question(`\n\t Your Answer: `); 
-
+  candidateAnswer = candidateAnswer.toUpperCase();
+  
+  //collects answers and puts into an array
   candidateAnswers.push(candidateAnswer);
-  //correctAnswers.toUpperCase()
-  //candidateAnswer.toUpperCase()
-
-  //console.log(candidateAnswer.toUpperCase());
-
-
- if (candidateAnswers[i] === correctAnswers[i]){
+  
+//Validates and adds points to grade
+ if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()){
     console.log('\n');
     console.log('Correct!');
     console.log('The correct answer is: ' + correctAnswers[i]);
