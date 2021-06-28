@@ -9,6 +9,7 @@ let candidateName = ``;
 let question = "Who was the first American woman in space?";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
+candidateAnswer = candidateAnswer.toUpperCase();
 
 let questions = [
   `Who was the first American Woman in space? `,
@@ -22,10 +23,12 @@ let correctAnswers = [
   `40`,
   "Trajectory",
   `3`];
+  correctAnswers = correctAnswers.toUpperCase();
 
 let candidateAnswers = [];
 let gradeMark = 0
 
+//if (correctAnswers != correctAnswers.toUpperCase()){}
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -42,6 +45,12 @@ function askQuestion() {
   candidateAnswer = input.question(`\n\t Your Answer: `); 
 
   candidateAnswers.push(candidateAnswer);
+  //correctAnswers.toUpperCase()
+  //candidateAnswer.toUpperCase()
+
+  //console.log(candidateAnswer.toUpperCase());
+
+
  if (candidateAnswers[i] === correctAnswers[i]){
     console.log('\n');
     console.log('Correct!');
@@ -65,7 +74,7 @@ function gradeQuiz() {
 
   let grade;
 grade = gradeMark / correctAnswers.length * 100
-console.log(`this is your grade: ${grade}.`);
+console.log(`This is your grade: ${grade}%.`);
 if (grade > 60){
   console.log(`Congratulations ${candidateName}!!  You passed!!`);
 
